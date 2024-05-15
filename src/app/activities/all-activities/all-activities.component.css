@@ -2,16 +2,48 @@
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     
 }
 .card{
-    margin-top: 1rem;
+    margin-top: 2.5rem;
     background-color: #2A3D45;
     color: white;
+    width: 100%;
+   
 }
 
 .card-link{
     color: white;
     text-decoration: none;
+}
+
+.icon-right{
+    display: flex;
+    
+}
+.btn-primary{
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: auto;
+    background-color: #DDC9B4;
+    border-radius: none;
+    border-radius: 1rem;
+    border-bottom: none;
+    border: #DDC9B4;
+}
+.price{
+    background-color: #C17C74;
+    border-bottom: none;
+    border: #C17C74;
+}
+
+.btn-primary:hover{
+    background-color: #C17C74;
+    border-bottom: none;
+    border: #C17C74;
+}
+.list-group-item{
+    width: 100%;
 }

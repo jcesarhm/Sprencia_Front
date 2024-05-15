@@ -1,0 +1,19 @@
+img{
+
+
+    border-radius: 1rem;
+}
+.carousel-caption{
+    bottom: 15rem;
+}
+h1{
+    font-size: 5rem;
+    padding-bottom: 2rem;
+
+
+}
+p{
+    font-size: 1.5rem;
+    color: white;
+    font-weight:400;
+}

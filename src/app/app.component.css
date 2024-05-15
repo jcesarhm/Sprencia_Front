@@ -1,3 +1,9 @@
 :root { 
     --main_color: #C17C74:
 }
+@font-face {
+    font-family: 'Montserrat',;
+    src: url('utility/fonts/Montserrat/static/Montserrat-Black.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+  }

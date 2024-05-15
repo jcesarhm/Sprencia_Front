@@ -18,6 +18,8 @@ body.navbar{
 }
 .navbar-brand{
     color:  white;
+    text-transform: uppercase;
+    font-weight: 600;
     
 }
 
