@@ -1,11 +1,11 @@
 img{
 
+    margin-top: 0.5rem;
 
     border-radius: 1rem;
+
 }
-.carousel-caption{
-    bottom: 15rem;
-}
+
 h1{
     font-size: 5rem;
     padding-bottom: 2rem;
@@ -15,5 +15,27 @@ h1{
 p{
     font-size: 1.5rem;
     color: white;
-    font-weight:400;
+    font-weight:300;
+}
+.carousel-item active{
+    border-radius: 1rem;
+    margin-bottom: 2rem;;
+}
+h2{
+    font-size: 12rem;
+    display: flex;
+    text-align: center;
+    flex-direction: column-reverse;
+    margin-bottom: 10rem;
+
+}
+@media (max-width: 1199px){
+  
+    h2{
+        display: none;
+    }
+  
+
+    
+  
 }

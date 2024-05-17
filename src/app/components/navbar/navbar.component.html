@@ -1,21 +1,25 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
- 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <a class="navbar-brand mb-md-0" href="#">Sprencia</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" >
+        <span class="navbar-toggler-icon icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbar-left">
-        <div class="navbar-nav me-auto">
-          <a class="nav-link active"  href="#">Actividades</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/activities" routerLinkActive="active" ariaCurrentWhenActive="page">Actividades</a>
+          </li>
          
-        </div>
+        </ul>
       </div>
-      <a class="navbar-brand" href="#">Sprencia</a>
-      <div class="collapse navbar-collapse" id="navbar-right">
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link active"  href="#">Contacto</a>
+      <a class="navbar-brand01 mb-md-0" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Sprencia</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
+          <li class="nav.item">
+            <a class="nav-link "  routerLink="/contact"  routerLinkActive="active" ariaCurrentWhenActive="page">Contacto</a>
+          </li>
          
-        </div>
+        </ul>
       </div>
     </div>
   </nav>

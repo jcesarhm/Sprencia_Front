@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivitiesService } from '../services/activities.service';
 import { CommonModule, NgFor } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-all-activities',
   standalone: true,
-  imports: [NgFor, CommonModule,RouterOutlet],
+  imports: [NgFor, CommonModule,RouterOutlet, RouterLink],
   templateUrl: './all-activities.component.html',
   styleUrl: './all-activities.component.css'
 })
