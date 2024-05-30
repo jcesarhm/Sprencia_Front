@@ -6,7 +6,7 @@
     
 }
 .card{
-    margin-top: 2.5rem;
+    margin-top: 1rem;
     background-color: #2A3D45;
     color: white;
     width: 100%;
@@ -46,4 +46,9 @@
 }
 .list-group-item{
     width: 100%;
+}
+
+.card-body{
+ 
+    height: 8rem;
 }
