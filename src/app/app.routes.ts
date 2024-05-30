@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { AllActivitiesComponent } from './activities/all-activities/all-activities.component';
+import { AllActivitiesComponent } from './components/activities/all-activities/all-activities.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { CardActivityComponent } from './activities/card-activity/card-activity.component';
-import { CreateActivityComponent } from './activities/create-activity/create-activity.component';
-import { ModifyActivityComponent } from './activities/modify-activity/modify-activity.component';
+import { CardActivityComponent } from './components/activities/card-activity/card-activity.component';
+import { CreateActivityComponent } from './components/activities/create-activity/create-activity.component';
+import { ModifyActivityComponent } from './components/activities/modify-activity/modify-activity.component';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' },
