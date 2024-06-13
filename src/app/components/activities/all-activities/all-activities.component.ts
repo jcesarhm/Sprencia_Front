@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivitiesService } from '../services/activities.service';
+
 import { CommonModule, NgFor } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { ActivitiesService } from '../../../services/activities.service';
 @Component({
   selector: 'app-all-activities',
   standalone: true,
@@ -11,19 +12,20 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class AllActivitiesComponent implements OnInit {
  
-  listActivities : any[] = [];
+  listActivities: string[] = [];
+
 
 activities: any;
   constructor(private activitiesService: ActivitiesService) 
   {}
 
-  ngOnInit(): void {
-    this.loadActivities();
+  async ngOnInit() {
+    const response = await this.activitiesService.get();
+    this.activities = response;
+    console.log(response);
  }
 
- private loadActivities() {
-   const activity = this.activitiesService.getActivities()
-   this.listActivities = activity;
-  console.log(activity);
- }
+
+
 }
+ 

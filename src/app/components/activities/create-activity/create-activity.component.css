@@ -1,0 +1,16 @@
+.forms{
+    background-color: #2A3D45;
+    color: white;
+    padding: 1.5rem;
+  border-radius: 1rem;
+}
+.btn{
+    background-color: #C17C74;
+    color: white;
+    padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+
+.form-text{
+    color: white;
+}

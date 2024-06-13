@@ -1,9 +1,15 @@
+<div class="caja">
+  <button type="button" class="btn bi bi-clipboard-plus-fill buttonAñadir" [routerLink]="['/create-activity']"></button>
+
+</div>
+
 <div class="list-activities">
-    <div class="w100%" *ngFor="let activity of listActivities">
+  
+   <div class="w100%" *ngFor="let activity of activities ">
         <div class="card" style="width: 18rem;">
             <div class="card-body ">
               <h5 class="card-title">{{activity.name}}</h5>
-              <p class="card-text">{{activity.summary}}</div>
+              <p class="card-text">{{activity.description}}</div>
             <ul class="list-group list-group-flush">
              
             </ul>
@@ -13,12 +19,14 @@
                     <br>
                     {{activity.date}}</li>
                   <div class="">
-                    <button type="button" class="btn  price button btn-primary">{{activity.price}} €</button>
-                    <button type="button" class="btn button btn-primary">Ver mas...</button>
+                    <button type="button" class="btn  price button btn-primary">{{activity.prices}} €</button>
+                    <button type="button" class="btn button btn-primary" [routerLink]="['/activities', activity.id]">Ver mas...</button>
                   </div>
-                 
+         
                 </div>
             </div>
           </div>
     </div>
+
+  
 </div>

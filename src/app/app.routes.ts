@@ -11,18 +11,15 @@ export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' },
     { path: "home", component: HomeComponent },
     { path: "activities", component: AllActivitiesComponent },
+    { path: "activities/:id", component: CardActivityComponent},
     { path: "contact", component: ContactComponent },
-    { path: "activity-detail", component: CardActivityComponent },
     { path: "create-activity", component: CreateActivityComponent },
     { path: "modify-activity", component: ModifyActivityComponent },
-
-  
-
-   
-    
-];
+ 
+  ];
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes),
+],
     exports: [RouterModule]
   })
   export class AppRoutingModule { }

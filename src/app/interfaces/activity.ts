@@ -4,6 +4,7 @@ export interface Activity {
  summary: string;
  price: number;
  date: string;
+ description: any;
 }
 
  export interface ActivityDetail{
@@ -12,5 +13,5 @@ export interface Activity {
     summary: string;
     price: number;
     date: string;
-    description: string;
+    description: any;
  }

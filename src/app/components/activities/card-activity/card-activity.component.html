@@ -1,5 +1,23 @@
-<div class="activity-detail">
-<h1>hola 
-    
-</h1>
+<div style="height: 87%;">
+
+<div class=" card card-body" *ngIf="activity">
+  <div class="buttons">
+    <button type="button" class="btn bi bi-arrow-left-circle-fill  buttonsColor" [routerLink]="['/activities']"></button>
+    <button type="button" class="btn bi bi-pencil-square  buttonsColor" [routerLink]="['/modify-activity',activity.id]"></button>
+    <!-- <button type="button" class="btn bi bi bi-x-circle-fill buttonsColor"   [routerLink]="['/activities']" (click)="deleteActivity(activity.id)"></button> -->
+  </div>
+  <h1 class="card-title">{{activity.name}}</h1>
+  <p class="card-text">{{activity.summary}}</p>
+  <hr>
+  <p class="card-text">{{activity.description}}</p>
+    <hr>
+    <div class="icon-right">
+        <li class="list-group-item">Horario: 
+          <br>
+          {{activity.date}}</li>
+        <div class="">
+          <button type="button" class="btn  price button btn-primary">{{activity.price}} €</button>
+          <button type="button" class="btn button btn-primary">Comprar</button>
+        </div>
+</div>
 </div>

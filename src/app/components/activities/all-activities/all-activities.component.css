@@ -52,3 +52,25 @@
  
     height: 8rem;
 }
+
+.buttonAñadir{
+    display: flex;
+    color: #2A3D45;
+    justify-content: center;
+    font-size: xx-large;
+    font-weight: bold;
+   border: none !important;
+   height: 100%;
+   width: 100%;
+}
+.caja{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: none;
+    height: 3rem;
+   
+}
+
+
+
