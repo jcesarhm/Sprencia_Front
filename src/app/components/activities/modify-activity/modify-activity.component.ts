@@ -14,7 +14,7 @@ import { CommonModule, NgIf } from '@angular/common';
 export class ModifyActivityComponent {
   formulario!: FormGroup;
   showAlerts: boolean = false;
-  mensajeAlert: string = '';
+  mensajeAlert: any = '';
   activity?: any;
   constructor(private activitiesService: ActivitiesService,private activatedRoute: ActivatedRoute){
     
@@ -32,13 +32,13 @@ export class ModifyActivityComponent {
     this.activatedRoute.params.subscribe((params: any) => {
       console.log(params.id);
       const id = parseInt(params.id);
-      // this.activity = this.activitiesService.getById(id);
+       this.activity = this.activitiesService.getById(id);
     })
   }
-  onSubmit() {
+   async onSubmit() {
     const  post = this.formulario.value;
     const postEnviado = {...post}
-    // this.mensajeAlert = this.activitiesService.addPost(postEnviado)
+    this.mensajeAlert = await this.activitiesService.addPost(postEnviado)
     this.showAlerts = true;
     setTimeout(()=>this.showAlerts = false, 800) 
     this.formulario.reset();
@@ -54,8 +54,8 @@ export class ModifyActivityComponent {
     }
 }
 deleteActivity(id: number): any {
-//  const borrado : string = this.activitiesService.deleteActivityById(id);
-//  return borrado;
+ const borrado : any = this.activitiesService.deleteActivityById(id);
+  return borrado;
 }
 }
 

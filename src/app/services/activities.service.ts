@@ -9,29 +9,8 @@ export class ActivitiesService {
   getActivities() {
     return this.activities;
   }
-  // getById (pId: number): Activity | undefined {
-  //   const activity = this.activities.find(activity => activity.id === pId);
-  //   return activity;
-  // }
 
-  // addPost(post: Activity){
-  //   this.activities.push(post);
-  //   return'post añadido';
-  // }
-
-  // deleteActivityById(id: number) {
-  //   const index = this.activities.findIndex(activity => activity.id === id);
-  //   this.activities.splice(index, 1);
-  //   return'post eliminado';
-    
-  // }
-
-  // Esto es una tabla en BBDD --> actividades
-
-  // Esto es una tabla en BBDD --> actividades
-
-
-    private activities: string;
+  private activities: string;
     
   constructor(private httpClient: HttpClient) {
   
@@ -41,10 +20,26 @@ export class ActivitiesService {
   //REcuperar todos las Activities
 
   get() : any{
-    const response = lastValueFrom( this.httpClient.get(this.activities + 'AllActivities'));
+    const response = lastValueFrom( this.httpClient.get(this.activities + 'All'));
     return response;
   }
   
+  getById(pId:number): any{
+    const response = lastValueFrom( this.httpClient.get(this.activities + pId));
+    return response;
+  }
+
+  addPost(post : any){
+    const response = lastValueFrom( this.httpClient.post(this.activities, post));
+    return response;
+  }
+
+  deleteActivityById(id: number) {
+    const response = lastValueFrom( this.httpClient.delete(this.activities + id));
+    return response;
+    
+  }
+
       
 
 

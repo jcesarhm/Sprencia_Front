@@ -2,7 +2,7 @@
     <div class="mb-3">
       <label  class="form-label">Nombre:</label>
       <input type="text" class="form-control" id="name" name="name" formControlName="name">
-      <div class="form-text" *ngIf="checkError('name', 'required')">Campo Obligatorio</div>
+      <div class="form-text" *ngIf="checkError('name', 'required') ngModel ">Campo Obligatorio</div>
     </div>
     <div class="mb-3">
       <label  class="form-label">Horario:</label>

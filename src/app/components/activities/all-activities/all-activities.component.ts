@@ -12,7 +12,7 @@ import { ActivitiesService } from '../../../services/activities.service';
 })
 export class AllActivitiesComponent implements OnInit {
  
-  listActivities: string[] = [];
+
 
 
 activities: any;
@@ -22,7 +22,8 @@ activities: any;
   async ngOnInit() {
     const response = await this.activitiesService.get();
     this.activities = response;
-    console.log(response);
+
+  
  }
 
 

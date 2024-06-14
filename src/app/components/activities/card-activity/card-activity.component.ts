@@ -13,35 +13,29 @@ import { AllActivitiesComponent } from '../all-activities/all-activities.compone
 })
 export class CardActivityComponent {
 
-  activity?: any;
+  activity: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private activitiesService: ActivitiesService,
   ) {
-    this.activity = {
-      id: 0,
-      name: '',
-      summary: '',
-      price: 0,
-      date: '',
-      description: '',
-    }
+    
   }
-  // deleteActivity(id: number): any {
-  //   if (confirm(`¿Estás seguro de eliminar el elemento ${this.activity.name}?`)){
-  //    const borrado : string = this.activitiesService//.deleteActivityById(id);
+    async deleteActivityById(id: number) {
+      if (confirm(`¿Estás seguro de eliminar el elemento ${this.activity.name}?`)){
+      const borrado : any =  await this.activitiesService.deleteActivityById(id);
 
-  //  return borrado;
-  //   }
-  // }
+     return borrado;
+      }
+    }
 
-  ngOnInit(): void {
-  // this.activatedRoute.params.subscribe((params: any) => {
-  //   console.log(params.id);
-  //   const id = parseInt(params.id);
-  //   this.activity = this.activitiesService.getById(id);
-  // })
+  async ngOnInit() {
+     this.activatedRoute.params.subscribe(async (params: any) => {
+     console.log(params.id);
+    const id = parseInt(params.id);
+     this.activity = await this.activitiesService.getById(id);
+    
+   })
 }
 
 }
