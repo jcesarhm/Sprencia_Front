@@ -1,57 +1,58 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink, RouterOutlet } from '@angular/router';
-
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { ActivitiesService } from '../../../services/activities.service';
+
 @Component({
   selector: 'app-create-activity',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule, NgIf, RouterLink, RouterOutlet],
+  imports: [RouterOutlet, ReactiveFormsModule, NgIf, RouterLink, RouterOutlet, ],
   templateUrl: './create-activity.component.html',
   styleUrl: './create-activity.component.css'
 })
 export class CreateActivityComponent {
 
-  formulario!: FormGroup;
-  // showAlerts: boolean = false;
-  // mensajeAlert: any = '';
-  activity : any ;
-  constructor(private activitiesService: ActivitiesService){
+  form!: FormGroup;
+  router=inject(Router)
+   showAlerts: boolean = false;
+    mensajeAlert: any = '';
+   activity : any ;
+  constructor(private activitiesService: ActivitiesService,
     
-   
-   
+  ){ }
+
+      ngOnInit() {
+    this.form =  new FormGroup({
+      name: new FormControl('', Validators.required),
+      summary: new FormControl('', Validators.required),
+      prices: new FormControl('', Validators.required),
+      date: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
+    }, []);
+  }
+       async onSubmit() {
+    console.log(this.form.value);
+     const newActivity: any =  {
+      name: this.form.value.name!,
+      summary: this.form.value.summary!,
+      prices: this.form.value.prices!,
+      date: this.form.value.dates!,
+      description: this.form.value.description!,
+    };
+      this.activitiesService.addPost(newActivity)
+      console.log(newActivity);
+     this.router.navigateByUrl("/activities");
+
   }
 
-//   ngOnInit(): void {
-//     this.formulario = new FormGroup({
-//       id: new FormControl(),
-//       name: new FormControl('', Validators.required),
-//       summary: new FormControl('', Validators.required),
-//       price: new FormControl('', Validators.required),
-//       date: new FormControl('', Validators.required),
-//       description: new FormControl('', Validators.required),
-//     });
-//   }
-   onSubmit() {
-     const  post = this.formulario.value;
-     const postEnviado = {...post}
-     this.activity = this.activitiesService.addPost( postEnviado)
-     console.log(this.activity);
-      // this.mensajeAlert = this.activitiesService.addPost(postEnviado)
-//      this.showAlerts = true;
-//      setTimeout(()=>this.showAlerts = false, 800) 
-//     this.formulario.reset();
-//      console.log(this.activitiesService);
-
+  checkError(control: string, error: string) {
+    if (this.form.get(control)?.hasError(error) && this.form.get(control)?.touched) {
+      return true;
+    } else {
+      return false;
+    }
   }
-
-   checkError(control:string, error:string){
-     if (this.formulario.get(control)?.hasError(error) && this.formulario.get(control)?.touched){
-      return true
-     } else{
-       return false
-     }
- }
 
 }
+

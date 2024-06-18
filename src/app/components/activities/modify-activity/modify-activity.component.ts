@@ -22,7 +22,7 @@ export class ModifyActivityComponent {
         id: 0,
         name: '',
         summary: '',
-        price: 0,
+        prices: 0,
         date: '',
         description: '',
       }

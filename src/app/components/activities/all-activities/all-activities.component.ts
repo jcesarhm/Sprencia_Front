@@ -22,7 +22,7 @@ activities: any;
   async ngOnInit() {
     const response = await this.activitiesService.get();
     this.activities = response;
-
+    console.log(this.activities);
   
  }
 
