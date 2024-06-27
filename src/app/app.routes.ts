@@ -14,7 +14,7 @@ export const routes: Routes = [
     { path: "activities/:id", component: CardActivityComponent},
     { path: "contact", component: ContactComponent },
     { path: "create-activity", component: CreateActivityComponent },
-    { path: "modify-activity", component: ModifyActivityComponent },
+    { path: "modify-activity/:id", component: ModifyActivityComponent },
  
   ];
 @NgModule({

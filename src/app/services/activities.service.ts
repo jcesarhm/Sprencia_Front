@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Activity } from '../interfaces/activity';
 import { HttpClient } from '@angular/common/http';
 import { Observable, lastValueFrom } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,30 +21,35 @@ export class ActivitiesService {
   //REcuperar todos las Activities
 
   get() : any{
-    const response = lastValueFrom( this.httpClient.get(this.urlApi + 'All'));
-    return response;
+    return lastValueFrom( this.httpClient.get(this.urlApi + 'All'));
+ 
   }
   
   getById(pId:number): any{
-    const response = lastValueFrom( this.httpClient.get(this.urlApi + pId));
-    return response;
+    return  lastValueFrom( this.httpClient.get(this.urlApi + pId));
+  
   }
 
   addPost(activity: Activity){
-    const response = lastValueFrom( this.httpClient.post(this.urlApi + 'AddActivity', activity));
-    return response;
-  }
-
-  deleteActivityById(id: number) {
-    const response = lastValueFrom( this.httpClient.delete(this.urlApi + id));
-    return response;
+    return  lastValueFrom( this.httpClient.post(this.urlApi + 'AddActivity', activity));
     
   }
 
+  deleteActivityById(id: number) {
+    return lastValueFrom( this.httpClient.delete(this.urlApi + id));
+    
+    
+  }
+
+  edit(activityId: number, activity: Activity): any {
+    return  lastValueFrom( this.httpClient.put(this.urlApi + activityId, activity));
+  }
+
+  
       
 
 
 
-
+// quitar Activity en las peticiones 
 
 }

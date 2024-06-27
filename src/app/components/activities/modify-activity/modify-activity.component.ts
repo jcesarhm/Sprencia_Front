@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ActivitiesService } from '../../../services/activities.service';
 import { CommonModule, NgIf } from '@angular/common';
 
@@ -12,52 +12,87 @@ import { CommonModule, NgIf } from '@angular/common';
   styleUrl: './modify-activity.component.css'
 })
 export class ModifyActivityComponent {
-  formulario!: FormGroup;
-  showAlerts: boolean = false;
-  mensajeAlert: any = '';
-  activity?: any;
-  constructor(private activitiesService: ActivitiesService,private activatedRoute: ActivatedRoute){
-    
-      this.activity = {
-        id: 0,
-        name: '',
-        summary: '',
-        prices: 0,
-        date: '',
-        description: '',
-      }
-  }
+  modifyActivity!: FormGroup;
 
-  ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params: any) => {
-      console.log(params.id);
-      const id = parseInt(params.id);
-       this.activity = this.activitiesService.getById(id);
+   showAlerts: boolean = false;
+    mensajeAlert: any = '';
+   activity : any ;
+  activityId!: any;
+
+  constructor(private activitiesService: ActivitiesService,
+    private activatedRoute: ActivatedRoute,
+    private router : Router
+  
+  ){}
+
+    async ngOnInit() {
+    this.modifyActivity =  new FormGroup({
+      id: new FormControl(''),
+      name: new FormControl('', Validators.required),
+      summary: new FormControl('', Validators.required),
+      prices: new FormControl('', Validators.required),
+      date: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
     })
-  }
-   async onSubmit() {
-    const  post = this.formulario.value;
-    const postEnviado = {...post}
-    this.mensajeAlert = await this.activitiesService.addPost(postEnviado)
-    this.showAlerts = true;
-    setTimeout(()=>this.showAlerts = false, 800) 
-    this.formulario.reset();
-    console.log(this.activitiesService);
+    this.activatedRoute.params.subscribe(async (result: any)=> {
+      console.log(result);
+      const id = parseInt(result.id);
+      this.activity = await this.activitiesService.getById(result.id);
+ 
+      if (this.activity){
+        this.modifyActivity.patchValue(this.activity);
+        this.activityId = this.activity.id;
+        
+        console.log(this.activityId);
+      }
+    });
+   
+    
+
 
   }
-
-  checkError(control:string, error:string){
-    if (this.formulario.get(control)?.hasError(error) && this.formulario.get(control)?.touched){
-      return true
-    } else{
-      return false
+  async onSubmit() {
+    console.log(this.modifyActivity.value);
+     const newActivity: any =  {
+      name: this.modifyActivity.value.name,
+      summary: this.modifyActivity.value.summary,
+      prices: this.modifyActivity.value.prices,
+      date: this.modifyActivity.value.date!,
+      description: this.modifyActivity.value.description,
+    };
+   
+     this.activitiesService.edit(this.activityId, newActivity);{
+     (confirm(`¿Estás seguro de modoficar ${this.activity.name}?`))
+     if (this.activity){
+        const borrado : any =  await this.activitiesService.edit(this.activityId, newActivity);
+         this.router.navigate(["/activities"]);
+    }else{
+      this.showAlerts = true;
+      this.mensajeAlert = 'No se ha modificado el elemento';
+      setTimeout(() => {
+        this.showAlerts = false;
+      }, 3000);
     }
+     
+    console.log(newActivity);
+
+    
+
+  }
+
+ 
+  }
+
+  checkError(control: string, error: string) {
+    if (this.modifyActivity.get(control)?.hasError(error) && this.modifyActivity.get(control)?.touched) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
-deleteActivity(id: number): any {
- const borrado : any = this.activitiesService.deleteActivityById(id);
-  return borrado;
-}
-}
+
+
 
 
 

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component} from '@angular/core';
-import { ActivatedRoute, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ActivitiesService } from '../../../services/activities.service';
 import { AllActivitiesComponent } from '../all-activities/all-activities.component';
 
@@ -14,18 +14,21 @@ import { AllActivitiesComponent } from '../all-activities/all-activities.compone
 export class CardActivityComponent {
 
   activity: any;
+  
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private activitiesService: ActivitiesService,
+    private router: Router,
+
   ) {
     
   }
     async deleteActivityById(id: number) {
       if (confirm(`¿Estás seguro de eliminar el elemento ${this.activity.name}?`)){
       const borrado : any =  await this.activitiesService.deleteActivityById(id);
+       this.router.navigate(["/activities"]);
 
-     return borrado;
       }
     }
 
@@ -35,7 +38,11 @@ export class CardActivityComponent {
     const id = parseInt(params.id);
      this.activity = await this.activitiesService.getById(id);
     
-   })
+   });
+}
+
+editActivityById(id: number){
+  console.log(id);
 }
 
 }
