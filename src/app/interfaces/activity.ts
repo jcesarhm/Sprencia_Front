@@ -3,7 +3,6 @@ export interface Activity {
  name: string;
  summary: string;
  price: number;
- date: string;
  description: any;
 }
 
@@ -12,6 +11,5 @@ export interface Activity {
     name: string;
     summary: string;
     price: number;
-    date: string;
     description: any;
  }

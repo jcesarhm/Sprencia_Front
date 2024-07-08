@@ -17,7 +17,14 @@
               <div class="icon-right">
                   <li class="list-group-item">Horario: 
                     <br>
-                    {{activity.date | date: 'dd/MM/yyyy'}}</li>
+                    <div *ngIf="schedules">
+                      <button>{{schedules}}</button>
+                      
+                    </div>
+                    {{activity.date | date: 'dd/MM/yyyy'}}
+                  </li>
+                    
+                   
                   <div class="">
                     <button type="button" class="btn  price button btn-primary">{{activity.prices}} €</button>
                     <button type="button" class="btn button btn-primary" [routerLink]="['/activities', activity.id]">Ver mas...</button>
