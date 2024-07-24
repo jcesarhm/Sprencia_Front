@@ -9,7 +9,7 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body ">
               <h5 class="card-title">{{activity.name}}</h5>
-              <p class="card-text">{{activity.description}}</div>
+              <p class="card-text">{{activity.summary}}</div>
             <ul class="list-group list-group-flush">
              
             </ul>
@@ -17,10 +17,6 @@
               <div class="icon-right">
                   <li class="list-group-item">Horario: 
                     <br>
-                    <div *ngIf="schedules">
-                      <button>{{schedules}}</button>
-                      
-                    </div>
                     {{activity.date | date: 'dd/MM/yyyy'}}
                   </li>
                     

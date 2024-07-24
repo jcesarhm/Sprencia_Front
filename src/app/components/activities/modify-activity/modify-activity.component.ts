@@ -33,14 +33,19 @@ export class ModifyActivityComponent {
       prices: new FormControl('', Validators.required),
       date: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
+      // changeDate(){
+      //   this.modifyActivity.patchValue({day: new Date, month: new Date, year: new Date});
+      //   console.log(this.modifyActivity.value.date);
+      // }
     })
+ 
     this.activatedRoute.params.subscribe(async (result: any)=> {
       console.log(result);
       const id = parseInt(result.id);
       this.activity = await this.activitiesService.getById(result.id);
  
       if (this.activity){
-        this.modifyActivity.patchValue(this.activity);
+        this.modifyActivity.patchValue(this.activity, );
         this.activityId = this.activity.id;
         
         console.log(this.activityId);
