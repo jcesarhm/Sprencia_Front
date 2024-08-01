@@ -41,8 +41,8 @@ export class CardActivityComponent {
      this.activity = await this.activitiesService.getById(id);
 
      const response = await this.commentsService.getAll();
-     this.comments = response;
-     console.log(this.comments);
+     this.comments = response.filter((comment: { activityId: number; }) => comment.activityId === id); 
+    //console.log(this.comments);
    
     
    });
