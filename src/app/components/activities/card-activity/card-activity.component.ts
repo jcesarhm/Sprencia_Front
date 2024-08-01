@@ -3,6 +3,7 @@ import { Component} from '@angular/core';
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ActivitiesService } from '../../../services/activities.service';
 import { AllActivitiesComponent } from '../all-activities/all-activities.component';
+import { CommentsService } from '../../../services/comments.service';
 
 @Component({
   selector: 'app-card-activity',
@@ -14,12 +15,13 @@ import { AllActivitiesComponent } from '../all-activities/all-activities.compone
 export class CardActivityComponent {
 
   activity: any;
-  
+  comments: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private activitiesService: ActivitiesService,
     private router: Router,
+    private commentsService: CommentsService,
 
   ) {
     
@@ -37,6 +39,11 @@ export class CardActivityComponent {
      console.log(params.id);
     const id = parseInt(params.id);
      this.activity = await this.activitiesService.getById(id);
+
+     const response = await this.commentsService.getAll();
+     this.comments = response.filter((comment: { activityId: number; }) => comment.activityId === id); 
+    //console.log(this.comments);
+   
     
    });
 }
@@ -44,5 +51,6 @@ export class CardActivityComponent {
 editActivityById(id: number){
   console.log(id);
 }
+
 
 }

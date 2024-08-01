@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ActivitiesService } from '../../../services/activities.service';
 import { CommonModule, NgIf } from '@angular/common';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-modify-activity',
@@ -33,14 +34,24 @@ export class ModifyActivityComponent {
       prices: new FormControl('', Validators.required),
       date: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
+      // changeDate(){
+      //   this.modifyActivity.patchValue({day: new Date, month: new Date, year: new Date});
+      //   console.log(this.modifyActivity.value.date);
+      // }
     })
+ 
     this.activatedRoute.params.subscribe(async (result: any)=> {
       console.log(result);
       const id = parseInt(result.id);
       this.activity = await this.activitiesService.getById(result.id);
  
       if (this.activity){
-        this.modifyActivity.patchValue(this.activity);
+        console.log("Fecha bbdd ",this.activity.date);
+ 
+        const date = new Date(this.activity.date);
+        const formattedDate = format(date, 'yyyy-MM-dd');
+       this.activity.date = formattedDate;
+        this.modifyActivity.patchValue(this.activity, );
         this.activityId = this.activity.id;
         
         console.log(this.activityId);
@@ -52,7 +63,8 @@ export class ModifyActivityComponent {
 
   }
   async onSubmit() {
-    console.log(this.modifyActivity.value);
+
+    console.log( "actividad editada ", this.modifyActivity.value);
      const newActivity: any =  {
       name: this.modifyActivity.value.name,
       summary: this.modifyActivity.value.summary,

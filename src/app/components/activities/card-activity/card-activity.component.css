@@ -56,3 +56,44 @@
 .buttonsColor:hover{
     color: white;
 }
+
+
+.text{
+    line-height: 3;
+    letter-spacing: 0.5px;
+
+}
+.card{
+    background-color: #2A3D45;
+    color: white;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-weight: 200;
+}
+
+
+.list-activities{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    gap: 1rem;
+
+}
+i{
+    margin-right: 0.3rem;
+    margin-bottom: 0.3rem;
+    color:#da4e3e;
+}
+.fecha{
+    
+    margin-bottom: 0.2rem !important;
+}
+h6{
+    margin-top: 0.2rem !important;
+}

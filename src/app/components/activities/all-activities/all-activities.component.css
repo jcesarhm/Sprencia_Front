@@ -2,7 +2,8 @@
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 3rem;
     
 }
 .card{
@@ -37,6 +38,8 @@
     background-color: #C17C74;
     border-bottom: none;
     border: #C17C74;
+    pointer-events: none;
+    color: white;
 }
 
 .btn-primary:hover{
@@ -74,3 +77,13 @@
 
 
 
+.horario{
+    display: flex;
+   margin-left: 0;
+justify-content: center;
+width: 50%;
+margin-bottom: 0.5rem;
+margin-top: 0.5rem;
+background:#963e3e;
+pointer-events: none;
+}
