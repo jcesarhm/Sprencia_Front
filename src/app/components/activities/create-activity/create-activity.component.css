@@ -1,11 +1,11 @@
 .forms{
-    background-color: #2A3D45;
+    background-color: #393d3f;
     color: white;
     padding: 1.5rem;
   border-radius: 1rem;
 }
 .btn{
-    background-color: #C17C74;
+    background-color: #da4e3e;
     color: white;
     padding: 0.5rem 1rem;
   border-radius: 1rem;
@@ -13,4 +13,15 @@
 
 .form-text{
     color: white;
+}
+
+@media (min-width: 1200px) {
+  .forms{
+      margin-bottom: 5rem;
+  }
+}
+@media (min-width: 1400px) {
+  .forms{
+      margin-bottom: 12.5rem;
+  }
 }

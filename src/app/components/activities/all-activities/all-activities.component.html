@@ -1,35 +1,30 @@
-<div class="caja">
-  <button type="button" class="btn bi bi-clipboard-plus-fill buttonAñadir" [routerLink]="['/create-activity']"></button>
+<div class="caja ">
+  <button type="button" class="btn bi bi-clipboard-plus-fill buttonAñadir" [routerLink]="['/create-activity'] "></button>
 
 </div>
 
-<div class="list-activities"  style="height: 84%;">
-  
-   <div class="w100%" *ngFor="let activity of activities ">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body ">
-              <h5 class="card-title">{{activity.name}}</h5>
-              <p class="card-text">{{activity.summary}}</div>
-            <ul class="list-group list-group-flush">
-             
-            </ul>
-            <div class="card-body icon card-body-flush">
-              <div class="icon-right">
-                  <li class="list-group-item">Fecha: 
-                    {{activity.date | date: 'dd/MM/yyyy'}}
-                    
-                  </li>
-                    
-                   
-                  <div class="">
-                    <button type="button" class="btn  price button btn-primary">{{activity.prices}} €</button>
-                    <button type="button" class="btn button btn-primary" [routerLink]="['/activities', activity.id]">Ver mas...</button>
-                  </div>
-         
-                </div>
-            </div>
-          </div>
-    </div>
+<div class="list-activities " style="height: 84%;">
 
-  
+  <div class="w100%" *ngFor="let activity of activities ">
+    <div class="card shadow  mb-5" style="width: 18rem;">
+      <div class="card-body ">
+        <h5 class="card-title">{{activity.name}}</h5>
+        <p class="card-text">{{activity.summary}}
+      </div>
+      <ul class="list-group list-group-flush "></ul>
+      <div class="card-body icon card-body-flush">
+        <div class="icon-right">
+          <button class="button-left shadow-sm  mb-2  ">{{activity.date | date: 'dd/MM/yyyy'}}</button>
+          <div class="">
+            <button type="button" class="btn  price button btn-primary shadow-sm  mb-2 ">{{activity.prices}} €</button>
+            <button type="button" class="btn button btn-primary shadow-sm  mb-2 " [routerLink]="['/activities', activity.id]">Ver
+              mas...</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </div>

@@ -1,89 +1,117 @@
-.list-activities{
+.list-activities {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 3rem;
-    
-}
-.card{
-    margin-top: 1rem;
-    background-color: #2A3D45;
-    color: white;
-    width: 100%;
-   
+
 }
 
-.card-link{
+.card {
+    margin-top: 1rem;
+    background-color: #393d3f;
+    color: white;
+    width: 100%;
+
+}
+
+.card-link {
     color: white;
     text-decoration: none;
 }
 
-.icon-right{
+.icon-right {
     display: flex;
-    
+
 }
-.btn-primary{
+
+.btn-primary {
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: auto;
-    background-color: #DDC9B4;
+    background-color: #a84720;
     border-radius: none;
     border-radius: 1rem;
     border-bottom: none;
-    border: #DDC9B4;
+    border: #773217;
 }
-.price{
-    background-color: #C17C74;
+
+.price {
+    background-color: #773217;
     border-bottom: none;
-    border: #C17C74;
+    border: #393d3f;
     pointer-events: none;
     color: white;
 }
 
-.btn-primary:hover{
-    background-color: #C17C74;
+.btn-primary:hover {
+    background-color: #773217;
     border-bottom: none;
-    border: #C17C74;
-}
-.list-group-item{
-    width: 100%;
+    border: #773217;
 }
 
-.card-body{
- 
+.button-left{
+    background-color: #146fa3;
+    height: 2.5rem;
+    border-radius: 1.5rem;
+    border: none;
+    color: white;
+    margin-right: 1rem;
+    padding: 0 1rem;
+} 
+
+.card-body {
+
     height: 8rem;
 }
 
-.buttonAñadir{
+.buttonAñadir {
     display: flex;
-    color: #2A3D45;
+    color: #393d3f;
     justify-content: center;
     font-size: xx-large;
     font-weight: bold;
-   border: none !important;
-   height: 100%;
-   width: 100%;
+    border: none !important;
+    height: 100%;
+    width: 100%;
 }
-.caja{
+
+.caja {
     display: flex;
     justify-content: center;
     align-items: center;
     border-bottom: none;
     height: 3rem;
-   
+
 }
 
 
 
-.horario{
+.horario {
     display: flex;
-   margin-left: 0;
-justify-content: center;
-width: 50%;
-margin-bottom: 0.5rem;
-margin-top: 0.5rem;
-background:#963e3e;
-pointer-events: none;
+    margin-left: 0;
+    justify-content: center;
+    width: 50%;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    background: #a84720;
+    pointer-events: none;
+}
+
+@media (min-width: 576px) { 
+    .list-activities{
+        justify-content: center !important;
+    }
+}
+
+@media (min-width: 768px) { 
+    .list-activities{
+        justify-content:space-between !important;
+    }
+}
+@media (min-width: 992px) {
+    .list-activities{
+        gap: 2rem;
+    }
 }

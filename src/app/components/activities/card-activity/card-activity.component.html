@@ -1,7 +1,7 @@
 <div style="height: 87%;">
 
-    <div class=" card card-body" *ngIf="activity">
-        <div class="buttons">
+    <div class=" card card-body shadow p-3" *ngIf="activity">
+        <div class="buttons shadow p-1">
             <button type="button" class="btn bi bi-arrow-left-circle-fill  buttonsColor"
                 [routerLink]="['/activities']"></button>
             <button type="button" class="btn bi bi-pencil-square  buttonsColor"
@@ -16,19 +16,19 @@
         <hr>
         <div class="group-button">
             <div class=" colum">
-                <button class="button-left" >Horario: {{activity.scheduleName}}</button>
-                <button class="button-left">Fecha: {{activity.date | date: 'dd/MM/yyyy'}}</button>
+                <button class="button-left shadow p-3 mb-5 " >Horario: {{activity.scheduleName}}</button>
+                <button class="button-left shadow p-3 mb-5">Fecha: {{activity.date | date: 'dd/MM/yyyy'}}</button>
             </div>
             <div class=" colum ">
-                <button class="button-right">Precio: {{activity.prices}} €</button>
-                <button class="btn button-right buy">Comprar</button>
+                <button class="button-right shadow p-3 mb-5">Precio: {{activity.prices}} €</button>
+                <button class="btn button-right buy shadow p-3 mb-5">Comprar</button>
             </div>
         </div>
     </div>
 
     <div class="list-activities">
         <div class="card" style="width: 18rem;" *ngFor="  let comment of comments">
-            <div class="card-body">
+            <div class="card-body shadow-sm p-3 mb-2  rounded">
                 <h5 class="card-title">{{comment.name}}</h5> <i class="bi bi-star-fill"></i> <i
                     class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> <i class="bi bi-star"></i>
                 <h6 class="fecha">{{comment.date | date: 'dd/MM/yyyy'}}</h6>

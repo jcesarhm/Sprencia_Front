@@ -4,10 +4,11 @@
 
 }
 .card{
-    background-color: #2A3D45;
+    background-color: #393d3f;;
     color: white;
     border-radius: 1rem;
     margin-bottom: 1rem;
+    
 }
 
 a{
@@ -18,4 +19,15 @@ a{
 
 p.refe {
     font-weight: 800;
+}
+
+@media (min-width: 1200px) {
+    .card{
+        margin-bottom: 5rem;
+    }
+}
+@media (min-width: 1400px) {
+    .card{
+        margin-bottom: 15rem;
+    }
 }
