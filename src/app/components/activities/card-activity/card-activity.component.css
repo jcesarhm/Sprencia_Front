@@ -3,30 +3,20 @@
     background-color: #2A3D45;
     color: white;
     width: 100%;
-   
 }
 .icon-right{
-    display: flex;
-    
+    display: flex;   
 }
-
 .btn-primary{
     width: 100%;
     padding: 0.5rem;
-    margin-bottom: 0.5rem;
-  
+    margin-bottom: 0.5rem; 
     background-color: #DDC9B4;
     border-radius: none;
     border-radius: 1rem;
     border-bottom: none;
     border: #C17C74;
 }
-.price{
-    background-color: #C17C74;
-    border-bottom: none;
-    border: #C17C74;
-}
-
 .btn-primary:hover{
     background-color: #C17C74;
     border-bottom: none;
@@ -42,8 +32,6 @@
     background-color: #C17C74;
     border-radius: 3rem;
     margin-bottom: 1rem;
-  
-  
 }
 
 .buttonsColor{
@@ -90,10 +78,35 @@ i{
     margin-bottom: 0.3rem;
     color:#da4e3e;
 }
-.fecha{
-    
-    margin-bottom: 0.2rem !important;
+.group-button{
+    display: flex;
+    justify-content: space-between;
+} 
+
+.colum{
+    display: flex;
+    flex-direction: column;
 }
-h6{
-    margin-top: 0.2rem !important;
+
+.button-left{
+    background-color: #146fa3;
+    border-radius: 3rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    color: white;
+} 
+
+.button-right{
+    background-color:#5b7e4d;
+    border-radius: 3rem;
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+    border: none;
+    color: white;
+}
+.buy:hover{
+    background-color: #32631d;
+    border: none;
+    color: white;
 }
