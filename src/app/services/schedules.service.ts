@@ -9,8 +9,7 @@ export class SchedulesService {
   private urlApi: string;
 
   constructor(private httpClient: HttpClient) {
-    this.urlApi = 'https://localhost:7010/api/Schedule/' 
-   }
+    this.urlApi = 'https://localhost:7010/api/Schedule/' }
 
    //Obtener todos los horarios
   getSchedules(): any {
